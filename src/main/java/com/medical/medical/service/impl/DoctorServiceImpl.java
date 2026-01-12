@@ -18,12 +18,15 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @RequiredArgsConstructor
 @Transactional
-public class DoctorServiceImpl  implements DoctorService {
+class DoctorServiceImpl  implements DoctorService {
 
 
     private final DoctorRepository doctorRepository;
     private final DoctorMapper doctorMapper;
     private final PasswordEncoder  passwordEncoder;
+
+    private static final String DOCTOR_NOT_FOUND_MSG =
+            "Doctor not found with id ";
 
     @Override
     public DoctorResponseDto createDoctor(DoctorRequestDto dto) {
@@ -39,7 +42,7 @@ public class DoctorServiceImpl  implements DoctorService {
 
         Doctor doctor = doctorRepository.findById(id)
                 .orElseThrow(() ->
-                        new ResourceNotFoundException("Doctor not found with id " + id)
+                        new ResourceNotFoundException(DOCTOR_NOT_FOUND_MSG + id)
                 );
         doctorMapper.updateEntity(doctor,dto);
         return doctorMapper.toDto(doctorRepository.save(doctor));
@@ -50,7 +53,7 @@ public class DoctorServiceImpl  implements DoctorService {
     public DoctorResponseDto getDoctorById(Long id) {
         Doctor doctor = doctorRepository.findById(id)
                 .orElseThrow(() ->
-                        new ResourceNotFoundException("Doctor not found with id " + id)
+                        new ResourceNotFoundException(DOCTOR_NOT_FOUND_MSG + id)
                 );
 
         return doctorMapper.toDto(doctor);
@@ -66,7 +69,7 @@ public class DoctorServiceImpl  implements DoctorService {
     public void deleteDoctor(Long id) {
         Doctor doctor = doctorRepository.findById(id)
                 .orElseThrow(() ->
-                        new ResourceNotFoundException("Doctor not found with id " + id)
+                        new ResourceNotFoundException( DOCTOR_NOT_FOUND_MSG+ id)
                 );
         doctorRepository.delete(doctor);
     }

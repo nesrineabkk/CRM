@@ -1,11 +1,10 @@
 package com.medical.medical.entity;
 
-
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.medical.medical.enums.Role;
 import jakarta.persistence.*;
 import lombok.*;
-
+import java.io.Serializable;
 import java.util.List;
 
 @Entity
@@ -15,7 +14,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Doctor {
+public class Doctor implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
