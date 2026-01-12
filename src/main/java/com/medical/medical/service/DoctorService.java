@@ -4,7 +4,6 @@ import com.medical.medical.dto.DoctorRequestDto;
 import com.medical.medical.dto.DoctorResponseDto;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.security.core.userdetails.UserDetails;
 
 
 public interface DoctorService {

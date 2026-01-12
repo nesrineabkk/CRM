@@ -22,16 +22,6 @@ public class JwtService {
 
     public String generateToken(UserDetails userDetails) {
 
-        /*return Jwts.builder()
-                .setSubject(userDetails.getUsername())
-                .claim("role", "ROLE_ADMIN")
-                .setIssuedAt(new Date())
-                .setExpiration(
-                        new Date(System.currentTimeMillis() + 1000 * 60 * 15)
-                )
-                .signWith(Keys.hmacShaKeyFor(SECRET_KEY.getBytes()),
-                        SignatureAlgorithm.HS256)
-                .compact();*/
         List<String> roles = userDetails.getAuthorities()
                 .stream()
                 .map(GrantedAuthority::getAuthority)

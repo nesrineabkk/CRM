@@ -9,7 +9,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 public class DataFixConfig {
-    @Bean
+ /*   @Bean
     CommandLineRunner fixDoctorPasswords(
             DoctorRepository doctorRepository,
             PasswordEncoder passwordEncoder) {
@@ -22,5 +22,5 @@ public class DataFixConfig {
                 doctorRepository.save(doctor);
             }
         });
-    }
+    }*/
 }

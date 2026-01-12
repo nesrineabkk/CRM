@@ -20,7 +20,7 @@ public class DataLoader implements CommandLineRunner{
 
     @Override
     public void run(String... args) {
-        boolean adminExists = doctorRepository.existsByRole(Role.ROLE_ADMIN);
+       /* boolean adminExists = doctorRepository.existsByRole(Role.ROLE_ADMIN);
         if (!adminExists) {
             Doctor admin = new Doctor();
             admin.setEmail("admin@hospital.com");
@@ -29,7 +29,7 @@ public class DataLoader implements CommandLineRunner{
             admin.setLastName("Admin");
             admin.setRole(Role.ROLE_ADMIN);
             doctorRepository.save(admin);
-        }
+        }*/
         }
 
     }
