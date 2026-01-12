@@ -81,13 +81,12 @@ public class DoctorControllerTest {
                                  "phone": "987654321"
                     }
                 """;
-        // Perform POST request to create doctor
         mockMvc.perform(
-                        post("/api/doctors") // endpoint
-                                .header(HttpHeaders.AUTHORIZATION, "Bearer " + adminToken) // auth header
-                                .contentType(MediaType.APPLICATION_JSON) // specify JSON body
-                                .content(newDoctorJson) // the body
-                ).andDo(print())              // 👈 PUT IT HERE
+                        post("/api/doctors")
+                                .header(HttpHeaders.AUTHORIZATION, "Bearer " + adminToken)
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(newDoctorJson)
+                ).andDo(print())
                 .andExpect(status().isOk());
     }
 
